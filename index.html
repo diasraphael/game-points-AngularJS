@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="angular.js@1.6.5" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <div class="row">
+      <div class="left-column">
+        <div class="header">
+          <h2>KAHOOT ! POINTS</h2>
+        </div>
+        <div class="items-container">
+          <div><h3>ITEMS</h3></div>
+          <div class="flex-container">
+          <input type="button" class="button flex-child" value="A" ng-click="selectItem('A');" />
+          <input type="button" class="button flex-child" value="B" ng-click="selectItem('B');" />
+          <input type="button" class="button flex-child" value="C" ng-click="selectItem('C');" />
+          <input type="button" class="button flex-child" value="D" ng-click="selectItem('D');" />
+          </div>
+        </div>
+      </div>
+      <div class="right-column">
+        <div class="header">
+          <h2>PLAYER ITEMS</h2>
+        </div>
+
+          
+          <table>
+  <tr>
+    <th>ITEMS</th>
+    <th>QUANTITY</th>
+    <th>SCORE</th>
+  </tr>
+  <tr ng-repeat="item in items">
+    <td>{{item.item}}</td>
+    <td>{{item.quantity}}</td>
+    <td>{{item.unitPoints}}</td>
+  </tr>
+</table>
+
+          
+          
+          <div class="score-container">
+          <div class="summary">BONUSES <span ng-if=amount.bonus> {{amount.bonus}}</span></div>
+          <div class="reset-container"> <span class="total common"><span>TOTAL</span>
+          <span ng-if=amount.total>{{amount.total}}</span></span>
+          <div class="reset common">
+          <input type="button" class="button reset-button" value="NEW GAME" ng-click="resetGame();" />
+          </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </body>
+
+</html>
